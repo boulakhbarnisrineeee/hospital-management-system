@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Rendez-vous</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient.css') }}">
+</head>
+<body class="theme">
+    <div class="container container-dashboard">
+        <h1 class="page-title">Mes Rendez-vous</h1>
+
+        <!-- Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {% if category == 'success' %}
+                <div class="alert success">{{ message }}</div>
+              {% else %}
+                <div class="alert error">{{ message }}</div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <div class="card card-elevated">
+            <table class="rdv-table table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID RDV</th>
+                        <th>ID Patient</th>
+                        <th>Date</th>
+                        <th>Heure</th>
+                        <th>Médecin</th>
+                        <th>Service</th>
+                        <th>Spécialité</th>
+                        <th>Consultation</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rdv in rendezvous %}
+                      <tr>
+                        <td>{{ rdv.id_rdv }}</td>
+                        <td>{{ rdv.id_patient }}</td>
+                        <td>{{ rdv.date }}</td>
+                        <td>{{ rdv.heure }}</td>
+                        <td>{{ rdv.medecin }}</td>
+                        <td>{{ rdv.service }}</td>
+                        <td>{{ rdv.specialite }}</td>
+                        <td>{{ rdv.consultation }}</td>
+                        <td>
+                          {% if rdv.statut == 'Confirmé' %}
+                            <span class="confirmé">Confirmé</span>
+                          {% elif rdv.statut == 'En attente' %}
+                            <span class="en-attente">En attente</span>
+                          {% else %}
+                            <span class="annulé">Annulé</span>
+                          {% endif %}
+                        </td>
+                        <td>
+                          {% if rdv.statut == 'Confirmé' %}
+                            <form action="{{ url_for('dashboard') }}" method="post">
+                              <input type="hidden" name="id_rdv" value="{{ rdv.id_rdv }}">
+                              <button type="submit" class="cancel-btn">Annuler</button>
+                            </form>
+                          {% else %}
+                            -
+                          {% endif %}
+                        </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
