@@ -1,0 +1,114 @@
+/* Base (on garde l’esprit d’origine) */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centrage du formulaire (corrigé) */
+.form-container {
+  display: flex;
+  flex-direction: column;   /* empile le titre au-dessus du formulaire */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;       /* centrage du titre et des textes */
+  gap: 16px;                /* espace entre le H1 et le formulaire */
+}
+
+/* Style du formulaire (conservé) */
+form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Champs (conservé) */
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Bouton (conservé) */
+button {
+  background-color: #004aad;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover { background-color: #003080; }
+
+/* ===== Nouveaux hooks pour les pages patient ===== */
+
+/* Bandeau haut */
+.bandeau-patient{
+  background: linear-gradient(90deg, var(--brand, #1E3A8A), var(--primary, #3B82F6));
+  color:#fff; text-align:center; padding:14px 18px; font-weight:600;
+}
+
+/* Page centre (wrapper) */
+.page-center{ max-width: 900px; margin: 24px auto; padding: 0 16px; }
+
+/* Carte formulaire */
+.form-card{
+  background:#fff; border-radius:12px; box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,.08));
+  padding:24px;
+}
+
+/* Grille 2 colonnes pour inputs */
+.grid-2{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 640px){ .grid-2{ grid-template-columns: 1fr; } }
+
+/* Espace patient (2 cartes) */
+.container-patient{
+  max-width: 1100px; margin: 24px auto; padding: 0 16px;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+}
+.card-patient{
+  background:#fff; border-radius:12px; box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,.08));
+  padding: 22px;
+}
+.card-patient h3{ margin:0 0 8px; color: var(--brand, #1E3A8A); }
+.card-patient p{ margin:0; color:#555; }
+
+/* Dashboard patient */
+.container-dashboard{ max-width:1200px; margin:24px auto; padding:0 16px; }
+.page-title{ margin:8px 0 16px; color: var(--brand, #1E3A8A); }
+.rdv-table{ width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow: 0 0 8px rgba(0,0,0,.05); }
+.rdv-table thead{ background: var(--brand, #1E3A8A); color:#fff; }
+.rdv-table th, .rdv-table td{ padding:12px 15px; border-bottom:1px solid #eee; text-align:left; }
+.rdv-table tbody tr:hover{ background:#f9fafb; }
+
+/* Statuts (compat et palette) */
+.confirmé, .en-attente, .annulé{ display:inline-block; padding:6px 10px; border-radius:6px; font-weight:700; }
+.confirmé{ background:#E6F9F2; color:#10B981; border:1px solid #b7f0df; }
+.en-attente{ background:#FFF7E6; color:#B45309; border:1px solid #fde2b9; }
+.annulé{ background:#FEE2E2; color:#EF4444; border:1px solid #f3b4b4; }
+
+/* Bouton annulation */
+.cancel-btn{
+  display:inline-block; padding:8px 14px; border-radius:6px; border:none;
+  background:#EF4444; color:#fff; cursor:pointer; font-weight:700;
+}
+.cancel-btn:hover{ opacity:.9; }
+
+/* Flashes (compat) */
+.alert, .flash-message{
+  padding:12px; border-radius:6px; margin: 12px 0 20px; font-weight:700; text-align:center;
+  border:1px solid transparent;
+}
+.alert.success, .flash-message.success{ background:#E6F9F2; color:#10B981; border-color:#c3e6cb; }
+.alert.error, .flash-message.error{ background:#FEE2E2; color:#EF4444; border-color:#f5c6cb; }
