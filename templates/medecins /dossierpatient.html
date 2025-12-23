@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dossier Patient</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/medecin/medecin.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Dossier médical – Alice Ben</h1>
+    <a href="/medecinhome" class="btn-retour">← Retour</a>
+  </header>
+
+  <main class="dossier-container">
+    <section class="infos-patient">
+      <h2>Informations Patient</h2>
+      <p><strong>Âge :</strong> 32 ans</p>
+      <p><strong>Antécédents :</strong> Allergie au paracétamol</p>
+      <p><strong>Consultation pour :</strong> Fièvre persistante</p>
+    </section>
+
+    <section class="formulaire-suivi">
+      <h2>Ajouter un suivi médical</h2>
+      <form action="/sauvegarder-suivi" method="post">
+        <textarea name="diagnostic" placeholder="Écrire un diagnostic..." required></textarea>
+        <textarea name="traitement" placeholder="Prescrire un traitement..." required></textarea>
+        <button type="submit">Enregistrer</button>
+      </form>
+    </section>
+
+    <section class="historique-consultations">
+      <h2>Historique des consultations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Diagnostic</th>
+            <th>Traitement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10/07/2025</td>
+            <td>Fièvre + maux de tête</td>
+            <td>Paracétamol 500mg × 3/j</td>
+          </tr>
+          <tr>
+            <td>15/07/2025</td>
+            <td>Douleurs articulaires persistantes</td>
+            <td>Anti-inflammatoire + repos</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
