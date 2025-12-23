@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des comptes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/admin.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>👥 Gestion des comptes</h2>
+        <ul>
+            <li>🔍 Visualiser tous les comptes enregistrés</li>
+            <li>➕ Ajouter ou supprimer un compte</li>
+            <li>✏️ Modifier les informations d’un utilisateur</li>
+        </ul>
+        <a href="{{ url_for('admin_home') }}" class="btn-back">⬅ Retour</a>
+    </div>
+</body>
+</html>
