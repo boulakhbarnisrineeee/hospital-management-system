@@ -1,0 +1,51 @@
+<!-- templates/medecin/disponibilites.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Disponibilités Médecin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/medecin/medecin.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Ajouter une période de disponibilité</h1>
+    <a href="/medecinhome" class="btn-retour">← Retour au tableau de bord</a>
+  </header>
+
+  <main class="form-container">
+    <form action="/ajouter-disponibilite" method="post">
+      <label>Nom du Médecin :</label>
+      <input type="text" name="nom" placeholder="Dr. Nom" required>
+
+      <label>Service :</label>
+      <select name="service" required>
+        <option value="">-- Sélectionner un service --</option>
+        <option>Cardiologie</option>
+        <option>Pédiatrie</option>
+        <option>Dermatologie</option>
+        <option>Gynécologie</option>
+        <option>Généraliste</option>
+      </select>
+
+      <label>Jour :</label>
+      <select name="jour" required>
+        <option value="">-- Choisir un jour --</option>
+        <option>Lundi</option>
+        <option>Mardi</option>
+        <option>Mercredi</option>
+        <option>Jeudi</option>
+        <option>Vendredi</option>
+        <option>Samedi</option>
+      </select>
+
+      <label>Heure de début :</label>
+      <input type="time" name="debut" required>
+
+      <label>Heure de fin :</label>
+      <input type="time" name="fin" required>
+
+      <button type="submit">Ajouter la disponibilité</button>
+    </form>
+  </main>
+</body>
+</html>
