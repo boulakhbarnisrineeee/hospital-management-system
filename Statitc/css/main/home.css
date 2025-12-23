@@ -1,0 +1,23 @@
+/* Accueil (cartes + à propos) */
+.card-section{
+  display:flex; justify-content:center; flex-wrap:wrap; gap:30px;
+  padding: 50px 20px; background:#f9f9f9;
+}
+
+.card{
+  background:#fff; border-radius:12px; box-shadow: var(--shadow);
+  padding:25px; width:280px; text-align:center; transition: transform .3s ease;
+}
+.card:hover{ transform: translateY(-5px); }
+.card h2{ color: var(--success); font-size:22px; margin: 10px 0; }            /* #10B981 */
+.card p{ font-size:15px; color: var(--text-soft); margin-bottom:20px; }
+.card .btn{ background: var(--accent); }
+.card .btn:hover{ transform: translateY(-2px); }
+.card-img{ width:80px; height:80px; object-fit:contain; margin-bottom:15px; }
+
+.about-section{
+  background:#fff; padding:50px 20px; text-align:center;
+  max-width: 800px; margin: 0 auto;
+}
+.about-section h2{ font-size:26px; margin-bottom:15px; color:#333; }
+.about-section p{ font-size:16px; line-height:1.6; color: var(--text-soft); }
