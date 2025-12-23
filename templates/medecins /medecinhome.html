@@ -1,0 +1,54 @@
+<!-- templates/medecin/medecinhome.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tableau de bord Médecin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/medecin/medecin.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Bienvenue Dr. Nom</h1>
+    <p>Voici la liste de vos consultations du jour</p>
+    <a href="/disponibilites" class="btn-consulter">Ajouter mes disponibilités</a>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Date</th>
+          <th>Heure</th>
+          <th>Prescription</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice Ben</td>
+          <td>06/08/2025</td>
+          <td>10:00</td>
+          <td>
+            <input type="text" placeholder="Ex: Doliprane, Scanner...">
+          </td>
+          <td>
+            <a href="/dossierpatient" class="btn-consulter">Consulter</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Mehdi Farid</td>
+          <td>06/08/2025</td>
+          <td>11:15</td>
+          <td>
+            <input type="text" placeholder="Ex: IRM, Antibiotiques...">
+          </td>
+          <td>
+            <a href="/dossierpatient" class="btn-consulter">Consulter</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
