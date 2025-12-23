@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Clinique de Joie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <!-- Chatbot CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body class="theme">
+
+    <header class="site-header">
+        <h1 class="site-title">Bienvenue à la Clinique De Joie</h1>
+        <p class="site-subtitle">Soins innovants, confort humain.</p>
+    </header>
+
+    <section class="card-section cards-grid">
+        <div class="card card-elevated">
+            <img src="{{ url_for('static', filename='img/patient.png') }}" alt="Patient" class="card-img">
+            <h2 class="card-title">Espace Patient</h2>
+            <p class="card-text">Prendre rendez-vous, consulter vos visites.</p>
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Bienvenue</a>
+        </div>
+
+        <div class="card card-elevated">
+            <img src="{{ url_for('static', filename='img/medecin.png') }}" alt="Médecin" class="card-img">
+            <h2 class="card-title">Espace Médecin</h2>
+            <p class="card-text">Gérez vos consultations et vos disponibilités.</p>
+            <a href="{{ url_for('login_medecin') }}" class="btn btn-primary">Bienvenue</a>
+        </div>
+
+        <div class="card card-elevated">
+            <img src="{{ url_for('static', filename='img/secretaire.png') }}" alt="Staff / Secrétaire" class="card-img">
+            <h2 class="card-title">Espace Staff / Secrétaire</h2>
+            <p class="card-text">Accès à la gestion globale de la clinique.</p>
+            <a href="{{ url_for('login_admin') }}" class="btn btn-primary">Bienvenue</a>
+        </div>
+    </section>
+
+    <section class="about-section section">
+        <h2 class="section-title">À propos de notre clinique</h2>
+        <p class="section-text">
+            La Clinique De Joie vous offre un service médical moderne et personnalisé, basé sur l'innovation technologique
+            et l'écoute attentive. Notre objectif est de garantir des soins de qualité dans un environnement confortable.
+        </p>
+    </section>
+
+    <footer class="site-footer">
+        <p>📍 123 Avenue de la Santé, Agadir - Souss Massa </p>
+        <p>📞 +212 6 12 34 56 78</p>
+    </footer>
+
+    <!-- Chatbot JS -->
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
