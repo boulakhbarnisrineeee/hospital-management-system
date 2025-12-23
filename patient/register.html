@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription - Clinique IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/patient.css') }}">
+</head>
+<body class="theme">
+
+    <div class="form-container card card-elevated">
+        <!-- Titre encadré -->
+        <div class="title-card card card-elevated" style="margin-bottom:12px;">
+            <h2 class="form-title">Inscription Patient</h2>
+        </div>
+
+        {# Messages de succès/erreur #}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message alert {{ category }}">{{ message }}</div>
+
+              {% if category == 'success' %}
+                <p class="redirect-text text-center" style="margin-top:10px;">
+                  <a class="btn btn-success" href="{{ url_for('patient_space') }}">Aller à mon espace</a>
+                </p>
+                <script>
+                  setTimeout(function () {
+                    window.location.href = "{{ url_for('patient_space') }}";
+                  }, 2000);
+                </script>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="form form-vertical">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" name="nom" id="nom" required class="input input-text">
+
+            <label for="prenom" class="form-label">Prénom</label>
+            <input type="text" name="prenom" id="prenom" required class="input input-text">
+
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" required class="input input-text">
+
+            <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" name="password" id="password" required class="input input-password">
+
+            <button type="submit" class="btn btn-primary btn-block">Créer le compte</button>
+        </form>
+
+        <p class="register-link text-center">
+            Vous avez déjà un compte ?
+            <a href="{{ url_for('login') }}" class="link link-primary">Connectez-vous ici</a>
+        </p>
+    </div>
+
+</body>
+</html>
