@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espace Patient</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/patient.css') }}">
+</head>
+<body class="theme">
+
+  <!-- Titre + sous-titre encadrés -->
+  <header class="site-header">
+    <h1 class="site-title">Espace Patient</h1>
+    <p class="site-subtitle">Gérez vos rendez-vous facilement et en toute sécurité.</p>
+  </header>
+
+  <!-- Bandeau -->
+  <div class="bandeau-patient site-banner">
+    Notre clinique place votre confort et votre bien-être au cœur de ses priorités.
+  </div>
+
+  <!-- Cartes (centrées + stylisées) -->
+  <main class="container-patient cards-grid">
+    <div class="card-patient card card-elevated" style="text-align:center;">
+      <img src="{{ url_for('static', filename='img/patient-rdv.png') }}" alt="Prendre rendez-vous" class="card-img" style="width:80px;height:80px;object-fit:contain;margin-bottom:10px;">
+      <h3 class="card-title">
+        <a href="{{ url_for('patient_form') }}" class="link link-primary">Prendre un rendez-vous</a>
+      </h3>
+      <p class="card-text">Accédez au formulaire et réservez une consultation en ligne.</p>
+    </div>
+
+    <div class="card-patient card card-elevated" style="text-align:center;">
+      <img src="{{ url_for('static', filename='img/patient-historique.png') }}" alt="Voir mes rendez-vous" class="card-img" style="width:80px;height:80px;object-fit:contain;margin-bottom:10px;">
+      <h3 class="card-title">
+        <a href="{{ url_for('dashboard') }}" class="link link-primary">Voir mes rendez-vous</a>
+      </h3>
+      <p class="card-text">Consultez l’historique et le suivi de vos rendez-vous passés et futurs.</p>
+    </div>
+  </main>
+
+</body>
+</html>
