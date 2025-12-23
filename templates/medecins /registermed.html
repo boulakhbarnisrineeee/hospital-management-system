@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription Médecin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/medecin/medecin.css') }}">
+</head>
+<body class="body-login">
+
+    <div class="login-container">
+        <h2>Inscription Médecin</h2>
+
+        <!-- Affichage des messages flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('register_medecin') }}">
+            <input type="text" name="nom" placeholder="Nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+            <button type="submit" class="btn-login">Créer le compte</button>
+        </form>
+
+        <p class="switch-link">
+            Vous avez déjà un compte ? 
+            <a href="{{ url_for('login_medecin') }}">Connectez-vous ici</a>
+        </p>
+    </div>
+
+</body>
+</html>
